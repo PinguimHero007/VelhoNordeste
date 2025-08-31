@@ -1,0 +1,17 @@
+# C
+from pygame import CONTROLLER_BUTTON_GUIDE
+
+C_ORANGE = (255, 128, 0)
+C_WHITE = (255, 255, 255)
+C_YELLOW = (255, 255, 0)
+C_RED = (255, 0, 0)
+C_BLACK = (0, 0, 0)
+C_GREEN = (0, 255, 0)
+
+# M
+MENU_OPTION = ('NOVO JOGO',
+               'SAIR',)
+
+# W
+WIN_WIDTH = 600
+WIN_HEIGHT = 400
