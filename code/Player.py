@@ -1,6 +1,6 @@
 import pygame
 
-from code.Const import ENTITY_SHOOT_DELAY
+from code.Const import ENTITY_SHOOT_DELAY, PLAYER_JUMP_DELAY
 from code.Entity import Entity
 from code.PlayerShoot import PlayerShoot
 
@@ -10,23 +10,27 @@ class Player(Entity):
     def __init__(self, name:str, position:tuple):
         super().__init__(name, position)
         self.shoot_delay = ENTITY_SHOOT_DELAY[self.name]
+        self.jump_delay = PLAYER_JUMP_DELAY[self.name]
 
     def update(self):
         pass
 
     #Definição de comando player e modificação de velocidade individual
     def move(self):
-        pressed = pygame.key.get_pressed()
+        self.jump_delay -= 1
+        if self.jump_delay == 0:
+            self.jump_delay = PLAYER_JUMP_DELAY[self.name]
+            pressed = pygame.key.get_pressed()
 
     #Pelo amor de Deus como isso funcionou eu não sei é um milagre que eu tenha conseguido colocar "Gravidade"
-        if pressed[pygame.K_UP]:
-            self.rect.y -= 20
-        if self.rect.y <= 176:
-            self.rect.y += 8
-        if pressed[pygame.K_LEFT] and self.rect.left > 0:
-            self.rect.centerx -= 1
-        if pressed[pygame.K_RIGHT] and self.rect.right > 0:
-            self.rect.centerx += 4
+            if pressed[pygame.K_UP]:
+                self.rect.y -= 100
+            if self.rect.y <= 170:
+                self.rect.y += 50
+            if pressed[pygame.K_LEFT] and self.rect.left > 0:
+                self.rect.centerx -= 2
+            if pressed[pygame.K_RIGHT] and self.rect.right > 0:
+                self.rect.centerx += 4
 
 
         pass

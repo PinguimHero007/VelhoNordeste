@@ -64,6 +64,10 @@ ENTITY_SHOOT_DELAY = {
     'Enemy1': 40,
     'Enemy2': 80,
 }
+PLAYER_JUMP_DELAY = {
+    'Player1':80,
+    'Player2':80,
+}
 
 
 # M
